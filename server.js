@@ -15,7 +15,12 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production' 
+        ? 'https://your-app-domain.render.com' 
+        : 'http://localhost:3000',
+    credentials: true
+}));
 
 //mongodb connection
 const mongoUrl = process.env.mongodbUrl;
@@ -90,7 +95,7 @@ app.get('/:code', async(req, res) => {
     }
 })
 
-/* Serve static files from the React app in production
+// Serve static files from the React app in production
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
@@ -99,7 +104,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
-}*/
+}
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`))
