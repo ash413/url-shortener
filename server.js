@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' 
-        ? 'https://your-app-domain.render.com' 
+        ? 'https://tinyclip.onrender.com' 
         : 'http://localhost:3000',
     credentials: true
 }));
