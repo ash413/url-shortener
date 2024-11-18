@@ -12,7 +12,7 @@ const Main = () => {
         e.preventDefault();
         setIsLoading(true);
         setShowSuccess(true);
-        setIsLoading(false);
+        setError('');
 
       try {
         const response = await fetch('/api/shorten', {
@@ -20,7 +20,7 @@ const Main = () => {
           headers: {
             'Content-Type' : 'application/json',
           },
-          body: JSON.stringify( { longurl: url } )
+          body: JSON.stringify( { longUrl: url } )
         });
       
         const data = await response.json();
@@ -35,6 +35,9 @@ const Main = () => {
 
       } catch (error) {
         setError(error.message)
+        setShowSuccess(false);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -89,6 +92,14 @@ const Main = () => {
               </div>
             )}
             </div>
+
+            {error && (
+              <div className="mt-6">
+                <div className="bg-red-50 border border-red-200 rounded-md p-4">
+                  <span className="text-red-800">{error}</span>
+                </div>
+              </div>
+            )}
         </div>
     </div>
   )

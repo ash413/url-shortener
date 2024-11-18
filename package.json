@@ -17,6 +17,7 @@
     "lucide-react": "^0.460.0",
     "mongoose": "^8.8.1",
     "nanoid": "^5.0.8",
+    "path": "^0.12.7",
     "shortid": "^2.2.16",
     "valid-url": "^1.0.9"
   },
