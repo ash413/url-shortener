@@ -45,7 +45,7 @@ const Main = () => {
     <div className='py-16 bg-white'>
         <div className='max-w-6xl mx-auto px-4'>
             <div className='text-center'>
-                <h1 className='text-xl font-bold text-gray-900 mb-4'>Shorten Your Links, Expand Your Reach</h1>
+                <h1 className='text-4xl font-bold text-gray-900 mb-4'>Shorten Your Links, Expand Your Reach</h1>
                 <p className='text-xl text-gray-600 mb-8'>Create short, memorable links in seconds with TinyClip's powerful URL shortener</p>
             </div>
 
