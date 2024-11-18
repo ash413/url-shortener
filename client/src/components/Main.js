@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Main = () => {
 
@@ -10,7 +10,12 @@ const Main = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         setIsLoading(true);
-        
+
+        setTimeout(() => {
+            setShortUrl('')
+            setShowSuccess(true);
+            setIsLoading(false);
+        }, 1000)
     }
 
   return (
